@@ -83,4 +83,6 @@ Rails.application.configure do
 
   # change localhost with actual root of app
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  config.assets.compile = true
 end
