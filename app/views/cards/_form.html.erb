@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= form_for(@card) do |f| %>
+        <% if @card.errors.any? %>
+          <div id="error_explanation">
+            <% @card.errors.full_messages.each do |message| %>
+              <div class="alert alert-danger">
+                <%= message %>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="field form-group">
+          <%= f.text_field :description, class: "form-control", placeholder: "Enter Description" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "add card", class: "btn btn-success btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
