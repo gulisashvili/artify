@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <%= form_for(@card) do |f| %>
+      <%= form_for @card, :html => { :multipart => true } do |f| %>
         <% if @card.errors.any? %>
           <div id="error_explanation">
             <% @card.errors.full_messages.each do |message| %>
@@ -15,6 +15,9 @@
 
         <div class="field form-group">
           <%= f.text_field :description, class: "form-control", placeholder: "Enter Description" %>
+        </div>
+        <div class="field form-group">
+          <%= f.file_field :image, class: "form-control" %>
         </div>
         <div class="actions">
           <%= f.submit "add card", class: "btn btn-success btn-lg btn-block" %>
