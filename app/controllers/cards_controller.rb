@@ -37,6 +37,20 @@ class CardsController < ApplicationController
     end
   end
 
+
+  # pictures_controller.rb
+  def upvote
+    @card = Card.find(params[:id])
+    @card.liked_by current_user
+    redirect_to root_path
+  end
+
+def downvote
+  @card = Card.find(params[:id])
+  @card.downvote_from current_user
+  redirect_to root_path
+end
+
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update

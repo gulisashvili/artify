@@ -14,15 +14,31 @@
 <div class="container">
   <div class="row">
     <% @cards.each do |card| %>
-      <div class="col-xs-12 col-sm-3">
-        <div class="card">
-          <%= image_tag card.image_url.to_s %>
-          <h4><%= card.description %></h4>
-          <span><%= link_to 'Show', card %></span>
-          <span><%= link_to 'Edit', edit_card_path(card) %></span>
-          <span><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        </div> <!-- End of card -->
-      </div> <!-- End of col-xs-12 col-sm-3 -->
+      <%= link_to card do %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="card">
+            <%= image_tag card.image_url.to_s, class: "thumb" %>
+            <% if user_signed_in? %>
+              <p>
+                <%= link_to "", like_card_path(card), class: "glyphicon glyphicon-thumbs-up", method: :put %>
+                  <span class="thumbs-counter"> <%= card.get_upvotes.size %> </span>
+                
+                
+                <%= link_to "", dislike_card_path(card), class: "glyphicon glyphicon-thumbs-down",method: :put %>
+                  <span class="thumbs-counter"> <%= card.get_downvotes.size %> </span>
+                
+
+              </p>
+            <% end %>
+            <h4><%= card.description %></h4>
+            <span class="gray"><%= time_ago_in_words(card.created_at, include_seconds: true) %> ago</span>
+            <% if current_user %>
+              <span><%= link_to 'Edit', edit_card_path(card) %></span>
+            <% end %>
+
+          </div> <!-- End of card -->
+        </div> <!-- End of col-xs-12 col-sm-3 -->
+      <% end %>
     <% end %>
 
   </div> <!-- End of row -->

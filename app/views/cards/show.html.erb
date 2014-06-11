@@ -1,10 +1,23 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag @card.image_url.to_s %>
-  <strong>Description:</strong>
-  <%= @card.description %>
-</p>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <%= image_tag @card.image_url.to_s, class: "img-responsive" %>
+      <strong>Description:</strong>
+      <%= @card.description %>
+    </div> <!-- End of col-xs-12 col-sm-6 col-m-4 -->
 
-<%= link_to 'Edit', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>
+  </div> <!-- End of row -->
+
+  <% if current_user %>
+
+  <%= link_to 'Edit', edit_card_path(@card) %> |
+  <%= link_to 'Back', cards_path %> |
+  <%= link_to 'Delete', @card, method: :delete %>
+
+  <% end %>
+
+</div> <!-- End of container -->

@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   # 
   root "cards#index"
 
+  resources :cards do
+    member do
+      put "like", to: "cards#upvote"
+      put "dislike", to: "cards#downvote"
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

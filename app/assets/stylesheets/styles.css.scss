@@ -1,1 +1,27 @@
 @import "bootstrap";
+
+
+$thumbs-up-color: rgb(60, 153, 60);
+$thumbs-down-color: rgb(221, 85, 85);
+
+.form-control {
+  height: 45px;
+}
+
+.glyphicon {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 3px;
+  &.glyphicon-thumbs-up {
+    color: $thumbs-up-color;
+    &:hover {
+      color: darken($thumbs-up-color, 7%);
+    }
+  }
+  &.glyphicon-thumbs-down {
+    color: $thumbs-down-color;
+    &:hover {
+      color: darken($thumbs-down-color, 7%);
+    }
+  }
+}

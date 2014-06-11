@@ -6,6 +6,7 @@ gem 'rails', '4.1.1'
 gem 'devise'
 # gem 'rmagick'
 gem 'carrierwave'
+gem 'acts_as_votable', '~> 0.10.0'
 
 
 # Use sqlite3 as the database for Active Record

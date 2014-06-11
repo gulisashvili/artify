@@ -1,1 +1,33 @@
+$card-color: #F7F5F5;
+$black     : #000000;
+
+.gray {
+  color: #C0BEBE;
+}
+
+.card {
+  height: 300px;
+  padding: 5px;
+  background-color: $card-color;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  &:hover {
+    // background-color: darken($card-color, 5%);
+    box-shadow: 0 0 4px lighten($black, 80%);
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+
+.thumbs-counter {
+  position: relative;
+  right: 5px;
+  bottom: 3px;
+  color: lighten($black, 20%);
+
+}
 
